@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace.com | Aaron</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS Custom Properties ===== */
+    :root {
+      --nav-blue: #003366;
+      --link-blue: #003399;
+      --link-visited: #663399;
+      --header-orange: #ff6600;
+      --body-bg: #ffffff;
+      --content-bg: #ffffff;
+      --border-gray: #cccccc;
+      --text-dark: #333333;
+      --text-light: #666666;
+      --banner-orange: #ffcc99;
+      --table-alt: #f2f2f2;
+      --dark: #1a1a2e;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Verdana, Geneva, sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-dark);
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--link-blue);
+      text-decoration: underline;
+    }
+    a:visited {
+      color: var(--link-visited);
+    }
+    a:hover {
+      color: var(--header-orange);
+    }
+
+    /* ===== NAV BAR ===== */
+    .myspace-nav {
+      background: var(--nav-blue);
+      padding: 6px 0;
+      border-bottom: 1px solid #001a33;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      margin-right: 16px;
+    }
+    .nav-logo:visited { color: #ffffff; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a, .nav-right a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .nav-links a:visited, .nav-right a:visited { color: #ffffff; }
+    .nav-links a:hover, .nav-right a:hover { color: #ccddee; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-bar {
+      background: var(--nav-blue);
+      padding: 4px 0 8px;
+      border-bottom: 2px solid #002244;
+    }
+
+    .search-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-brand {
+      font-weight: 700;
+      font-size: 22px;
+      color: #ffffff;
+      font-style: italic;
+      margin-right: 12px;
+      letter-spacing: -1px;
+    }
+
+    .search-inner input[type="text"] {
+      padding: 3px 8px;
+      font-size: 12px;
+      border: 1px solid #999;
+      border-radius: 0;
+      width: 200px;
+      font-family: inherit;
+    }
+
+    .search-inner button {
+      background: #e8e8e8;
+      border: 1px solid #999;
+      padding: 3px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .search-links {
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    .search-links a {
+      color: #b0c8de;
+      text-decoration: none;
+      margin: 0 3px;
+    }
+    .search-links a:visited { color: #b0c8de; }
+    .search-links a:hover { color: #ffffff; }
+
+    /* ===== PROFILE CONTAINER ===== */
+    .profile-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 10px 20px;
+    }
+
+    .profile-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 8px 0;
+      color: var(--text-dark);
+    }
+
+    /* ===== TWO-COLUMN LAYOUT ===== */
+    .profile-columns {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .left-col {
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .right-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ===== LEFT COLUMN — PROFILE INFO ===== */
+    .profile-photo-area {
+      background: var(--content-bg);
+      border: 1px solid var(--border-gray);
+      padding: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .profile-info-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mood {
+      font-family: 'Pacifico', cursive;
+      font-size: 14px;
+      color: var(--text-dark);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .demographics {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .online-status {
+      font-size: 12px;
+      font-weight: 700;
+      color: #008800;
+      margin-bottom: 4px;
+    }
+
+    .online-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #00cc00;
+      border-radius: 50%;
+      margin-right: 3px;
+      animation: blink-online 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink-online {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .last-login {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .view-my {
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+    .view-my a {
+      font-size: 11px;
+    }
+
+    /* ===== SECTION HEADER (Blue bar) ===== */
+    .section-header {
+      background: var(--nav-blue);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 8px;
+      margin-bottom: 0;
+    }
+
+    /* ===== CONTACT BOX ===== */
+    .contact-box {
+      background: var(--content-bg);
+      border: 1px solid var(--border-gray);
+      margin-bottom: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 4px;
+    }
+
+    .contact-grid a {
+      display: block;
+      padding: 4px 6px;
+      font-size: 11px;
+      text-decoration: none;
+      color: var(--link-blue);
+      white-space: nowrap;
+    }
+    .contact-grid a:hover {
+      background: #e8e8f0;
+      color: var(--header-orange);
+    }
+
+    /* ===== MYSPACE URL BOX ===== */
+    .url-box {
+      background: var(--content-bg);
+      border: 1px solid var(--border-gray);
+      padding: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+    .url-box strong {
+      display: block;
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+    .url-box a {
+      font-size: 11px;
+      word-break: break-all;
+    }
+
+    /* ===== MUSIC PLAYER (Left Column) ===== */
+    .music-player {
+      background: #1a1a2e;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .player-label {
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .player-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .player-art {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid #444;
+    }
+
+    .player-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .player-title {
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .player-artist {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 3px;
+    }
+
+    .progress-bar-fill {
+      width: 47%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff69b4, #00d4ff);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+
+    .progress-bar-fill.playing {
+      animation: progress-move 120s linear forwards;
+    }
+
+    @keyframes progress-move {
+      to { width: 100%; }
+    }
+
+    .player-time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .play-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid #00d4ff;
+      background: transparent;
+      color: #00d4ff;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .play-btn:hover {
+      background: #00d4ff;
+      color: #1a1a2e;
+    }
+
+    /* ===== DETAILS TABLE ===== */
+    .details-box {
+      background: var(--content-bg);
+      border: 1px solid var(--border-gray);
+      margin-bottom: 8px;
+    }
+
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .details-table td {
+      padding: 4px 8px;
+      font-size: 12px;
+      border: 1px solid #b0b0b0;
+    }
+
+    .details-table td:first-child {
+      font-weight: 600;
+      color: var(--text-dark);
+      width: 40%;
+      white-space: nowrap;
+      background: #d5e0f0;
+    }
+
+    .details-table a.orange-link {
+      color: var(--header-orange);
+      font-weight: 600;
+    }
+
+    /* ===== RIGHT COLUMN ===== */
+
+    /* Extended Network Banner */
+    .network-banner {
+      background: #ffffff;
+      border: 2px solid #000000;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    /* Content sections on right */
+    .right-section {
+      background: var(--content-bg);
+      border: 1px solid var(--border-gray);
+      margin-bottom: 10px;
+    }
+
+    .right-section-body {
+      padding: 10px 12px;
+    }
+
+    /* ===== ORANGE SECTION HEADERS ===== */
+    .orange-header {
+      background: linear-gradient(180deg, #ffeedd, #ffd6a0);
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--header-orange);
+    }
+
+    .orange-header a {
+      font-size: 11px;
+      font-weight: 400;
+      float: right;
+      margin-top: 2px;
+    }
+
+    /* ===== BLOG ENTRY (standalone) ===== */
+    .blog-standalone {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .blog-standalone .blog-header {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .blog-entry-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--link-blue);
+      margin-bottom: 2px;
+    }
+
+    .blog-entry-date {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .blog-entry-text {
+      font-size: 12px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    /* ===== BLURBS ===== */
+    .blurb {
+      margin-bottom: 14px;
+    }
+
+    .blurb h3 {
+      color: var(--header-orange);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .blurb p {
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* ===== JOURNEY MAP ===== */
+    .journey-svg {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .journey-path {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: draw-path 3s ease-out forwards;
+    }
+
+    @keyframes draw-path {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .city-dot {
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { r: 6; opacity: 1; }
+      50% { r: 9; opacity: 0.7; }
+    }
+
+    .city-dot-current {
+      animation: pulse-dot-current 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px #00d4ff);
+    }
+
+    @keyframes pulse-dot-current {
+      0%, 100% { r: 7; opacity: 1; }
+      50% { r: 11; opacity: 0.8; }
+    }
+
+    .city-label {
+      font-family: 'Inter', Verdana, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      fill: var(--nav-blue);
+    }
+
+    /* ===== OPTIMIZATION STACK ===== */
+    .timeline {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 10px 0 16px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--header-orange), var(--nav-blue), #00d4ff);
+      z-index: 0;
+    }
+
+    .era {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      max-width: 140px;
+    }
+
+    .era-icon {
+      font-size: 1.6rem;
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .era-name {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--nav-blue);
+      background: var(--content-bg);
+      padding: 1px 6px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .fitness-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .fitness-card {
+      background: var(--table-alt);
+      border: 1px solid var(--border-gray);
+      border-top: 3px solid var(--nav-blue);
+      padding: 10px 8px;
+      text-align: center;
+    }
+
+    .fitness-card h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--nav-blue);
+      margin-bottom: 4px;
+    }
+
+    .fitness-card p {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .tracking-pills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      background: var(--nav-blue);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .closer {
+      font-family: 'Pacifico', cursive;
+      color: var(--header-orange);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ===== FRIEND SPACE ===== */
+    .friends-count {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .top8-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .top8-card {
+      text-align: center;
+      padding: 4px;
+    }
+
+    .top8-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 1px solid var(--border-gray);
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    .top8-card .name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--link-blue);
+      line-height: 1.3;
+    }
+
+    .top8-card .label {
+      font-size: 10px;
+      color: var(--text-light);
+    }
+
+    .friends-view-links {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--content-bg);
+      border-top: 2px solid var(--nav-blue);
+      text-align: center;
+      padding: 16px 10px 10px;
+      max-width: 960px;
+      margin: 0 auto;
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    .visitor-counter {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--header-orange);
+      margin-bottom: 6px;
+    }
+
+    .tom {
+      margin-bottom: 4px;
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 11px;
+    }
+
+    .copyright {
+      margin-bottom: 8px;
+      font-size: 10px;
+      color: #999;
+    }
+
+    .marquee-bar {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-top: 1px solid var(--border-gray);
+      margin-top: 8px;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      animation: marquee-scroll 18s linear infinite;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--header-orange);
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .profile-columns {
+        flex-direction: column;
+      }
+
+      .left-col {
+        width: 100%;
+      }
+
+      .top8-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fitness-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links, .nav-right {
+        gap: 2px;
+      }
+
+      .nav-links a, .nav-right a {
+        font-size: 10px;
+        padding: 2px 3px;
+      }
+
+      .search-inner {
+        flex-wrap: wrap;
+      }
+
+      .search-inner input[type="text"] {
+        width: 140px;
+      }
+
+      .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: auto;
+        width: 2px;
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== SEARCH BAR (above nav) ===== -->
+  <div class="search-bar">
+    <div class="search-inner">
+      <span class="search-brand">MySpace</span>
+      <input type="text" placeholder="Search MySpace" disabled>
+      <button disabled>Search</button>
+      <span class="search-links">
+        <a href="#">Web</a>
+        <a href="#">MySpace</a>
+        <a href="#">People</a>
+      </span>
+      <span class="search-links" style="margin-left: auto; font-size: 10px; color: #8aa8c0;">Powered by Google</span>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="myspace-nav">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <a href="#" class="nav-logo">MySpace</a>
+        <a href="#">Home</a>
+        <a href="#">Mail &#9660;</a>
+        <a href="#">Profile &#9660;</a>
+        <a href="#">Friends &#9660;</a>
+        <a href="#">Music</a>
+        <a href="#">MySpaceTV</a>
+        <a href="#">More &#9660;</a>
+      </div>
+      <div class="nav-right">
+        <a href="#">My Account</a>
+        <a href="#">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PROFILE CONTAINER ===== -->
+  <div class="profile-container">
+    <h1 class="profile-name">Aaron</h1>
+
+    <div class="profile-columns">
+
+      <!-- ========== LEFT COLUMN ========== -->
+      <div class="left-col">
+
+        <!-- Profile Photo & Info -->
+        <div class="profile-photo-area">
+          <img class="profile-pic" src="https://placehold.co/120x120/003366/ffffff?text=AC" alt="Aaron profile photo">
+          <div class="profile-info-text">
+            <div class="mood">"excited to build things"</div>
+            <div class="demographics">
+              Male / 30-something<br>
+              SAN FRANCISCO, California<br>
+              United States
+            </div>
+            <div class="online-status">
+              <span class="online-dot"></span> Online Now!
+            </div>
+            <div class="last-login">Last Login: <span id="lastLogin">1/26/2026</span></div>
+            <div class="view-my">
+              View My: <a href="#">Pics</a> | <a href="#">Videos</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacting Aaron -->
+        <div class="contact-box">
+          <div class="section-header">Contacting Aaron</div>
+          <div class="contact-grid">
+            <a href="mailto:aaron.christensen15@gmail.com">&#9993; Send Message</a>
+            <a href="https://www.linkedin.com/in/aaronc15/" target="_blank" rel="noopener">&#128100; Add to Friends</a>
+            <a href="#">&#128172; Instant Message</a>
+            <a href="#">&#8599; Forward to Friend</a>
+            <a href="#">&#11088; Add to Favorites</a>
+            <a href="#">&#128683; Block User</a>
+          </div>
+        </div>
+
+        <!-- MySpace URL -->
+        <div class="url-box">
+          <strong>MySpace URL:</strong>
+          <a href="#">http://www.myspace.com/aaron</a>
+        </div>
+
+        <!-- Music Player -->
+        <div class="music-player">
+          <div class="player-label">Aaron's Song</div>
+          <div class="player-inner">
+            <img class="player-art" src="https://placehold.co/50x50/1a1a2e/ff69b4?text=%E2%99%AB" alt="Album art">
+            <div class="player-info">
+              <div class="player-title">Sugar, We're Goin Down</div>
+              <div class="player-artist">Fall Out Boy</div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBar"></div>
+              </div>
+              <div class="player-time">
+                <span id="currentTime">1:47</span>
+                <span>3:49</span>
+              </div>
+            </div>
+            <button class="play-btn" id="playBtn" aria-label="Play/Pause">&#9654;</button>
+          </div>
+        </div>
+
+        <!-- Aaron's Details -->
+        <div class="details-box">
+          <div class="section-header">Aaron's Details</div>
+          <table class="details-table">
+            <tr>
+              <td>Status:</td>
+              <td>Taken</td>
+            </tr>
+            <tr>
+              <td>Here for:</td>
+              <td>Networking</td>
+            </tr>
+            <tr>
+              <td>Orientation:</td>
+              <td>Product-Led Growth</td>
+            </tr>
+            <tr>
+              <td>Zodiac Sign:</td>
+              <td><a href="#" class="orange-link">Capricorn</a></td>
+            </tr>
+          </table>
+        </div>
+
+      </div><!-- /.left-col -->
+
+      <!-- ========== RIGHT COLUMN ========== -->
+      <div class="right-col">
+
+        <!-- Extended Network Banner -->
+        <div class="network-banner">
+          Aaron is in your extended network
+        </div>
+
+        <!-- Latest Blog Entry (standalone) -->
+        <div class="blog-standalone">
+          <div class="blog-header">Aaron's Latest Blog Entry</div>
+          <a href="#"><strong>Why I Keep a Personal OS in a Git Repo</strong></a>
+          &mdash; <span class="blog-entry-date">January 25, 2026</span><br>
+          Most people use Notion or a task app. I use a git repo with markdown files and an AI agent that processes my inbox, plans my week, and routes ideas to the right folder. Here's why that's not as unhinged as it sounds...
+          <br>
+          <a href="#" style="font-size: 11px;">[view more]</a> |
+          <a href="#" style="font-size: 11px;">[Subscribe to this Blog]</a>
+        </div>
+
+        <!-- Aaron's Blurbs -->
+        <div class="right-section">
+          <div class="orange-header">Aaron's Blurbs</div>
+          <div class="right-section-body">
+            <div class="blurb">
+              <h3>About me:</h3>
+              <p>Started in <strong>marketing</strong>, got obsessed with <strong>building things</strong>, and ended up at <strong>Superhuman</strong> working on AI-native productivity. The throughline: figuring out what makes people tick and then making their tools match.</p>
+              <p style="margin-top: 8px;">I've been to <strong>6 continents</strong>. Antarctica is next. I've lived in Portland, San Francisco, and Austin &mdash; currently back in the Bay. I'm the kind of person who keeps a personal productivity OS in a git repo and thinks that's normal.</p>
+              <p style="margin-top: 8px;">I like hard problems, clean systems, and dogs that are slightly too large for the couch.</p>
+            </div>
+            <div class="blurb">
+              <h3>Who I'd like to meet:</h3>
+              <p>People who think personal productivity systems in git repos are normal. Also anyone who's been to Antarctica.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Journey -->
+        <div class="right-section">
+          <div class="orange-header">The Journey</div>
+          <div class="right-section-body" style="text-align: center;">
+            <svg class="journey-svg" viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#ff6600"/>
+                  <stop offset="50%" stop-color="#003366"/>
+                  <stop offset="100%" stop-color="#00d4ff"/>
+                </linearGradient>
+              </defs>
+              <path class="journey-path"
+                    d="M 80 100 C 180 30, 250 140, 350 80 C 450 20, 500 130, 620 70"
+                    fill="none"
+                    stroke="url(#pathGrad)"
+                    stroke-width="3"
+                    stroke-dasharray="6 6"
+                    stroke-linecap="round"/>
+              <!-- Portland -->
+              <circle cx="80" cy="100" r="6" fill="#ff6600" class="city-dot"/>
+              <text x="80" y="130" text-anchor="middle" class="city-label">Portland</text>
+              <!-- SF (first time) -->
+              <circle cx="280" cy="70" r="6" fill="#003366" class="city-dot"/>
+              <text x="280" y="55" text-anchor="middle" class="city-label">SF</text>
+              <!-- Austin -->
+              <circle cx="450" cy="60" r="6" fill="#ffd700" class="city-dot"/>
+              <text x="450" y="45" text-anchor="middle" class="city-label">Austin</text>
+              <!-- SF (current) -->
+              <circle cx="620" cy="70" r="7" fill="#00d4ff" class="city-dot-current"/>
+              <text x="620" y="55" text-anchor="middle" class="city-label" style="fill: #00d4ff;">SF(?)</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- The Optimization Stack -->
+        <div class="right-section">
+          <div class="orange-header">The Optimization Stack</div>
+          <div class="right-section-body">
+            <!-- Evolution Timeline -->
+            <div class="timeline">
+              <div class="era">
+                <span class="era-icon">&#127939;</span>
+                <span class="era-name">Half Marathons</span>
+              </div>
+              <div class="era">
+                <span class="era-icon">&#128170;</span>
+                <span class="era-name">Muscle Era</span>
+              </div>
+              <div class="era">
+                <span class="era-icon">&#9878;&#65039;</span>
+                <span class="era-name">Balanced Stack</span>
+              </div>
+            </div>
+
+            <!-- Current Stack Grid -->
+            <div class="fitness-grid">
+              <div class="fitness-card">
+                <h4>Norwegian 4x4</h4>
+                <p>High-intensity interval training for VO2max. Four 4-minute intervals at near-max effort.</p>
+              </div>
+              <div class="fitness-card">
+                <h4>Zone 2 Running</h4>
+                <p>Low-intensity base building. Conversational pace, nose breathing, fat oxidation.</p>
+              </div>
+              <div class="fitness-card">
+                <h4>4x/week Strength</h4>
+                <p>Upper/lower split. Compound lifts, progressive overload, nothing fancy.</p>
+              </div>
+            </div>
+
+            <!-- Tracking Pills -->
+            <div class="tracking-pills">
+              <span class="pill">Oura Ring</span>
+              <span class="pill">Blood Panels</span>
+              <span class="pill">Levels CGM</span>
+            </div>
+
+            <div class="closer">constantly tinkering...</div>
+          </div>
+        </div>
+
+        <!-- Aaron's Friend Space -->
+        <div class="right-section">
+          <div class="orange-header">Aaron's Friend Space</div>
+          <div class="right-section-body">
+            <div class="friends-count">
+              Aaron has <strong>8</strong> friends.
+            </div>
+            <div class="top8-grid">
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/ff69b4/ffffff?text=M" alt="Marissa">
+                <div class="name">Marissa</div>
+                <div class="label">Partner</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/00d4ff/ffffff?text=%F0%9F%90%B6" alt="Goose">
+                <div class="name">Goose</div>
+                <div class="label">Good Boy</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/ffd700/ffffff?text=%F0%9F%90%B1" alt="Maverick">
+                <div class="name">Maverick</div>
+                <div class="label">Cat</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/003366/ffffff?text=Mom" alt="Mom">
+                <div class="name">Mom</div>
+                <div class="label">The OG</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/336633/ffffff?text=Dad" alt="Dad">
+                <div class="name">Dad</div>
+                <div class="label">The OG pt 2</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/ff69b4/ffffff?text=B" alt="Brooke">
+                <div class="name">Brooke</div>
+                <div class="label">Sister</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/00d4ff/ffffff?text=E" alt="Erika">
+                <div class="name">Erika</div>
+                <div class="label">Sister</div>
+              </div>
+              <div class="top8-card">
+                <img src="https://placehold.co/80x80/ffd700/ffffff?text=T" alt="Theo">
+                <div class="name">Theo</div>
+                <div class="label">Nephew</div>
+              </div>
+            </div>
+            <div class="friends-view-links">
+              View Aaron's Friends: <a href="#">All</a> | <a href="#">Online</a> | <a href="#">New</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.right-col -->
+
+    </div><!-- /.profile-columns -->
+
+  </div><!-- /.profile-container -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="visitor-counter">You are visitor #000,014,832</div>
+    <div class="tom">Tom is in your extended network.</div>
+    <div class="copyright">&copy; 2003&ndash;2026 MySpaceAaron. All rights reserved. Best viewed at 1024&times;768.</div>
+    <div class="marquee-bar">
+      <span class="marquee-text">~*~ welcome to my page ~*~ under construction ~*~ do NOT steal my layout ~*~ powered by GeoCities ~*~ sign my guestbook ~*~</span>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // --- Dynamic Last Login Date ---
+    (function() {
+      var el = document.getElementById('lastLogin');
+      if (el) {
+        var d = new Date();
+        el.textContent = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+      }
+    })();
+
+    // --- Music Player Toggle ---
+    (function() {
+      var playBtn = document.getElementById('playBtn');
+      var progressBar = document.getElementById('progressBar');
+      var playing = false;
+
+      playBtn.addEventListener('click', function() {
+        playing = !playing;
+        playBtn.innerHTML = playing ? '&#9208;' : '&#9654;';
+        if (playing) {
+          progressBar.classList.add('playing');
+        } else {
+          progressBar.classList.remove('playing');
+          var computed = getComputedStyle(progressBar).width;
+          progressBar.style.width = computed;
+        }
+      });
+    })();
+
+    // --- Journey Path Draw-on (re-trigger on scroll into view) ---
+    (function() {
+      var path = document.querySelector('.journey-path');
+      if (!path) return;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            path.style.animation = 'none';
+            void path.offsetWidth;
+            path.style.animation = 'draw-path 3s ease-out forwards';
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(path);
+    })();
+  </script>
+
+</body>
+</html>
