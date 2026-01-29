@@ -45,14 +45,14 @@
       color: var(--header-orange);
     }
 
-    /* ===== NAV BAR ===== */
-    .myspace-nav {
-      background: var(--nav-blue);
-      padding: 6px 0;
-      border-bottom: 1px solid #001a33;
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: #335b9b;
+      padding: 8px 0;
+      border: 1px solid #1a3a6e;
     }
 
-    .nav-inner {
+    .top-bar-inner {
       max-width: 960px;
       margin: 0 auto;
       padding: 0 10px;
@@ -61,93 +61,112 @@
       align-items: center;
     }
 
-    .nav-logo {
+    .top-bar-left {
       color: #ffffff;
-      font-weight: 700;
-      font-size: 18px;
-      text-decoration: none;
-      letter-spacing: -0.5px;
-      margin-right: 16px;
-    }
-    .nav-logo:visited { color: #ffffff; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .nav-links a, .nav-right a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
+      font-size: 13px;
       white-space: nowrap;
     }
-    .nav-links a:visited, .nav-right a:visited { color: #ffffff; }
-    .nav-links a:hover, .nav-right a:hover { color: #ccddee; }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 4px;
+    .top-bar-left a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
     }
+    .top-bar-left a:visited { color: #ffffff; }
+    .top-bar-left a:hover { text-decoration: underline; }
 
-    /* ===== SEARCH BAR ===== */
-    .search-bar {
-      background: var(--nav-blue);
-      padding: 4px 0 8px;
-      border-bottom: 2px solid #002244;
-    }
-
-    .search-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 10px;
+    .top-bar-center {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .search-brand {
-      font-weight: 700;
-      font-size: 22px;
       color: #ffffff;
-      font-style: italic;
-      margin-right: 12px;
-      letter-spacing: -1px;
+      font-size: 12px;
     }
 
-    .search-inner input[type="text"] {
-      padding: 3px 8px;
+    .top-bar-center label {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .top-bar-center input[type="radio"] {
+      margin: 0;
+    }
+
+    .top-bar-center input[type="text"] {
+      padding: 3px 6px;
       font-size: 12px;
-      border: 1px solid #999;
-      border-radius: 0;
-      width: 200px;
+      border: 1px solid #ccc;
+      width: 180px;
       font-family: inherit;
     }
 
-    .search-inner button {
-      background: #e8e8e8;
+    .top-bar-center button {
+      background: #ffffff;
       border: 1px solid #999;
-      padding: 3px 12px;
-      font-size: 11px;
+      padding: 3px 14px;
+      font-size: 12px;
+      font-weight: 700;
       cursor: pointer;
       font-family: inherit;
     }
 
-    .search-links {
-      font-size: 11px;
-      margin-left: 4px;
+    .top-bar-right {
+      color: #ffffff;
+      font-size: 13px;
+      white-space: nowrap;
     }
-    .search-links a {
-      color: #b0c8de;
+
+    .top-bar-right a {
+      color: #ffffff;
       text-decoration: none;
-      margin: 0 3px;
+      font-weight: 700;
     }
-    .search-links a:visited { color: #b0c8de; }
-    .search-links a:hover { color: #ffffff; }
+    .top-bar-right a:visited { color: #ffffff; }
+    .top-bar-right a:hover { text-decoration: underline; }
+
+    /* ===== NAV BAR ===== */
+    .myspace-nav {
+      background: #89a3c2;
+      padding: 6px 0;
+      border-bottom: 1px solid #6e8aab;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: #1a2e4a;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    .nav-links a:visited { color: #1a2e4a; }
+    .nav-links a:hover { text-decoration: underline; color: #000000; }
+
+    .nav-sep {
+      color: #4a6a8a;
+      font-size: 12px;
+      padding: 0 2px;
+    }
 
     /* ===== PROFILE CONTAINER ===== */
     .profile-container {
@@ -192,8 +211,8 @@
     }
 
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 170px;
+      height: auto;
       object-fit: cover;
       border: 1px solid #ccc;
       flex-shrink: 0;
@@ -220,28 +239,6 @@
       line-height: 1.6;
     }
 
-    .online-status {
-      font-size: 12px;
-      font-weight: 700;
-      color: #008800;
-      margin-bottom: 4px;
-    }
-
-    .online-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: #00cc00;
-      border-radius: 50%;
-      margin-right: 3px;
-      animation: blink-online 1.5s ease-in-out infinite;
-    }
-
-    @keyframes blink-online {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
     .last-login {
       font-size: 11px;
       color: var(--text-light);
@@ -262,6 +259,7 @@
       color: #ffffff;
       font-size: 12px;
       font-weight: 700;
+      font-style: italic;
       padding: 4px 8px;
       margin-bottom: 0;
     }
@@ -582,103 +580,6 @@
       fill: var(--nav-blue);
     }
 
-    /* ===== OPTIMIZATION STACK ===== */
-    .timeline {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      margin: 10px 0 16px;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 12%;
-      right: 12%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--header-orange), var(--nav-blue), #00d4ff);
-      z-index: 0;
-    }
-
-    .era {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      max-width: 140px;
-    }
-
-    .era-icon {
-      font-size: 1.6rem;
-      margin-bottom: 2px;
-      display: block;
-    }
-
-    .era-name {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--nav-blue);
-      background: var(--content-bg);
-      padding: 1px 6px;
-      border-radius: 3px;
-      display: inline-block;
-    }
-
-    .fitness-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .fitness-card {
-      background: var(--table-alt);
-      border: 1px solid var(--border-gray);
-      border-top: 3px solid var(--nav-blue);
-      padding: 10px 8px;
-      text-align: center;
-    }
-
-    .fitness-card h4 {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--nav-blue);
-      margin-bottom: 4px;
-    }
-
-    .fitness-card p {
-      font-size: 11px;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
-    .tracking-pills {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .pill {
-      background: var(--nav-blue);
-      color: #ffffff;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 12px;
-    }
-
-    .closer {
-      font-family: 'Pacifico', cursive;
-      color: var(--header-orange);
-      font-size: 13px;
-      text-align: center;
-      margin-top: 6px;
-    }
-
     /* ===== FRIEND SPACE ===== */
     .friends-count {
       font-size: 12px;
@@ -790,58 +691,45 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .fitness-grid {
-        grid-template-columns: 1fr;
+      .top-bar-inner {
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
       }
 
-      .nav-links, .nav-right {
-        gap: 2px;
+      .top-bar-center input[type="text"] {
+        width: 120px;
       }
 
-      .nav-links a, .nav-right a {
+      .nav-links {
+        gap: 0;
+      }
+
+      .nav-links a {
         font-size: 10px;
         padding: 2px 3px;
       }
 
-      .search-inner {
-        flex-wrap: wrap;
-      }
-
-      .search-inner input[type="text"] {
-        width: 140px;
-      }
-
-      .timeline {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .timeline::before {
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        right: auto;
-        width: 2px;
-        height: 100%;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== SEARCH BAR (above nav) ===== -->
-  <div class="search-bar">
-    <div class="search-inner">
-      <span class="search-brand">MySpace</span>
-      <input type="text" placeholder="Search MySpace" disabled>
-      <button disabled>Search</button>
-      <span class="search-links">
-        <a href="#">Web</a>
-        <a href="#">MySpace</a>
-        <a href="#">People</a>
-      </span>
-      <span class="search-links" style="margin-left: auto; font-size: 10px; color: #8aa8c0;">Powered by Google</span>
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <a href="#">MySpace.com</a> | <a href="#">Home</a>
+      </div>
+      <div class="top-bar-center">
+        <label><input type="radio" name="search-scope" checked disabled> The Web</label>
+        <label><input type="radio" name="search-scope" disabled> MySpace</label>
+        <input type="text" disabled>
+        <button disabled>Search</button>
+      </div>
+      <div class="top-bar-right">
+        <a href="#">Help</a> | <a href="#">SignUp</a>
+      </div>
     </div>
   </div>
 
@@ -849,18 +737,20 @@
   <nav class="myspace-nav">
     <div class="nav-inner">
       <div class="nav-links">
-        <a href="#" class="nav-logo">MySpace</a>
-        <a href="#">Home</a>
-        <a href="#">Mail &#9660;</a>
-        <a href="#">Profile &#9660;</a>
-        <a href="#">Friends &#9660;</a>
-        <a href="#">Music</a>
-        <a href="#">MySpaceTV</a>
-        <a href="#">More &#9660;</a>
-      </div>
-      <div class="nav-right">
-        <a href="#">My Account</a>
-        <a href="#">Sign Out</a>
+        <a href="#">Home</a><span class="nav-sep">|</span>
+        <a href="#">Browse</a><span class="nav-sep">|</span>
+        <a href="#">Search</a><span class="nav-sep">|</span>
+        <a href="#">Invite</a><span class="nav-sep">|</span>
+        <a href="#">Film</a><span class="nav-sep">|</span>
+        <a href="#">Mail</a><span class="nav-sep">|</span>
+        <a href="#">Blog</a><span class="nav-sep">|</span>
+        <a href="#">Favorites</a><span class="nav-sep">|</span>
+        <a href="#">Forum</a><span class="nav-sep">|</span>
+        <a href="#">Groups</a><span class="nav-sep">|</span>
+        <a href="#">Events</a><span class="nav-sep">|</span>
+        <a href="#">Videos</a><span class="nav-sep">|</span>
+        <a href="#">Music</a><span class="nav-sep">|</span>
+        <a href="#">Classifieds</a>
       </div>
     </div>
   </nav>
@@ -880,12 +770,10 @@
           <div class="profile-info-text">
             <div class="mood">"excited to build things"</div>
             <div class="demographics">
-              Male / 30-something<br>
+              Male<br>
+              30-something<br>
               SAN FRANCISCO, California<br>
               United States
-            </div>
-            <div class="online-status">
-              <span class="online-dot"></span> Online Now!
             </div>
             <div class="last-login">Last Login: <span id="lastLogin">1/26/2026</span></div>
             <div class="view-my">
@@ -899,11 +787,13 @@
           <div class="section-header">Contacting Aaron</div>
           <div class="contact-grid">
             <a href="mailto:aaron.christensen15@gmail.com">&#9993; Send Message</a>
-            <a href="https://www.linkedin.com/in/aaronc15/" target="_blank" rel="noopener">&#128100; Add to Friends</a>
-            <a href="#">&#128172; Instant Message</a>
             <a href="#">&#8599; Forward to Friend</a>
+            <a href="https://www.linkedin.com/in/aaronc15/" target="_blank" rel="noopener">&#128100; Add to Friends</a>
             <a href="#">&#11088; Add to Favorites</a>
+            <a href="#">&#128172; Instant Message</a>
             <a href="#">&#128683; Block User</a>
+            <a href="#">&#128101; Add to Group</a>
+            <a href="#">&#11014; Rank User</a>
           </div>
         </div>
 
@@ -947,11 +837,30 @@
             </tr>
             <tr>
               <td>Orientation:</td>
-              <td>Product-Led Growth</td>
+              <td>Building</td>
             </tr>
             <tr>
               <td>Zodiac Sign:</td>
-              <td><a href="#" class="orange-link">Capricorn</a></td>
+              <td><a href="#" class="orange-link">Pisces</a></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Aaron's Interests -->
+        <div class="details-box">
+          <div class="section-header">Aaron's Interests</div>
+          <table class="details-table">
+            <tr>
+              <td>General</td>
+              <td>Systems Thinking, AI, Personal Productivity, Travel, Visiting All Seven Continents, Running, Strength Training</td>
+            </tr>
+            <tr>
+              <td>Music</td>
+              <td>Fall Out Boy, Blink-182, Jimmy Eat World, The Killers, Death Cab for Cutie, Dashboard Confessional, Taking Back Sunday</td>
+            </tr>
+            <tr>
+              <td>Heroes</td>
+              <td>Richard Feynman, Barack Obama, Damian Lillard</td>
             </tr>
           </table>
         </div>
@@ -984,12 +893,12 @@
             <div class="blurb">
               <h3>About me:</h3>
               <p>Started in <strong>marketing</strong>, got obsessed with <strong>building things</strong>, and ended up at <strong>Superhuman</strong> working on AI-native productivity. The throughline: figuring out what makes people tick and then making their tools match.</p>
-              <p style="margin-top: 8px;">I've been to <strong>6 continents</strong>. Antarctica is next. I've lived in Portland, San Francisco, and Austin &mdash; currently back in the Bay. I'm the kind of person who keeps a personal productivity OS in a git repo and thinks that's normal.</p>
+              <p style="margin-top: 8px;">I've been to <strong>6 continents</strong>. Antarctica is next. I've lived in Portland, San Francisco, and Austin &mdash; currently in Austin but thinking about returning to San Francisco later this year. I'm the kind of person who keeps a personal productivity OS in a git repo and thinks that's normal.</p>
               <p style="margin-top: 8px;">I like hard problems, clean systems, and dogs that are slightly too large for the couch.</p>
             </div>
             <div class="blurb">
               <h3>Who I'd like to meet:</h3>
-              <p>People who think personal productivity systems in git repos are normal. Also anyone who's been to Antarctica.</p>
+              <p>People building personal productivity and operating systems in Claude Code. Barack Obama. Richard Feynman. Damian Lillard. Anyone who's been to Antarctica.</p>
             </div>
           </div>
         </div>
@@ -1029,50 +938,41 @@
           </div>
         </div>
 
-        <!-- The Optimization Stack -->
+        <!-- The Health Optimization Stack -->
         <div class="right-section">
-          <div class="orange-header">The Optimization Stack</div>
+          <div class="orange-header">The Health Optimization Stack</div>
           <div class="right-section-body">
-            <!-- Evolution Timeline -->
-            <div class="timeline">
-              <div class="era">
-                <span class="era-icon">&#127939;</span>
-                <span class="era-name">Half Marathons</span>
-              </div>
-              <div class="era">
-                <span class="era-icon">&#128170;</span>
-                <span class="era-name">Muscle Era</span>
-              </div>
-              <div class="era">
-                <span class="era-icon">&#9878;&#65039;</span>
-                <span class="era-name">Balanced Stack</span>
-              </div>
+            <div class="blurb">
+              <h3>The Evolution:</h3>
+              <p><b>Half Marathons</b> &rarr; <b>Muscle Era</b> &rarr; <b>Balanced Stack</b></p>
+              <p style="margin-top: 4px; font-size: 11px; color: #666666;">
+                Started as a distance runner, got into hypertrophy training, now running a balanced protocol.
+              </p>
             </div>
-
-            <!-- Current Stack Grid -->
-            <div class="fitness-grid">
-              <div class="fitness-card">
-                <h4>Norwegian 4x4</h4>
-                <p>High-intensity interval training for VO2max. Four 4-minute intervals at near-max effort.</p>
-              </div>
-              <div class="fitness-card">
-                <h4>Zone 2 Running</h4>
-                <p>Low-intensity base building. Conversational pace, nose breathing, fat oxidation.</p>
-              </div>
-              <div class="fitness-card">
-                <h4>4x/week Strength</h4>
-                <p>Upper/lower split. Compound lifts, progressive overload, nothing fancy.</p>
-              </div>
+            <div class="blurb">
+              <h3>Current Stack:</h3>
             </div>
-
-            <!-- Tracking Pills -->
-            <div class="tracking-pills">
-              <span class="pill">Oura Ring</span>
-              <span class="pill">Blood Panels</span>
-              <span class="pill">Levels CGM</span>
+            <table class="details-table" style="margin-bottom: 14px;">
+              <tr>
+                <td>Norwegian 4x4</td>
+                <td>High-intensity interval training for VO2max. Four 4-minute intervals at near-max effort.</td>
+              </tr>
+              <tr>
+                <td>Zone 2 Running</td>
+                <td>Low-intensity base building. Conversational pace, nose breathing, fat oxidation.</td>
+              </tr>
+              <tr>
+                <td>4x/week Strength</td>
+                <td>Upper/lower split. Compound lifts, progressive overload, nothing fancy.</td>
+              </tr>
+            </table>
+            <div class="blurb">
+              <h3>Tracking:</h3>
+              <p>Oura Ring, Blood Panels, Levels CGM</p>
             </div>
-
-            <div class="closer">constantly tinkering...</div>
+            <p style="margin-top: 10px; font-style: italic; color: #ff6600; font-size: 12px;">
+              constantly tinkering...
+            </p>
           </div>
         </div>
 
@@ -1092,12 +992,12 @@
               <div class="top8-card">
                 <img src="https://placehold.co/80x80/00d4ff/ffffff?text=%F0%9F%90%B6" alt="Goose">
                 <div class="name">Goose</div>
-                <div class="label">Good Boy</div>
+                <div class="label">Kitty #1a</div>
               </div>
               <div class="top8-card">
                 <img src="https://placehold.co/80x80/ffd700/ffffff?text=%F0%9F%90%B1" alt="Maverick">
                 <div class="name">Maverick</div>
-                <div class="label">Cat</div>
+                <div class="label">Kitty #1b</div>
               </div>
               <div class="top8-card">
                 <img src="https://placehold.co/80x80/003366/ffffff?text=Mom" alt="Mom">
